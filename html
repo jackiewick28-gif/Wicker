@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Luxury Watch Shop</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body{
+            margin:0;
+            font-family: Arial, sans-serif;
+            background:#fff;
+        }
+
+        header{
+            background:#d10000;
+            color:white;
+            text-align:center;
+            padding:20px;
+        }
+
+        nav{
+            background:#111;
+            text-align:center;
+            padding:10px;
+        }
+
+        nav button{
+            background:none;
+            border:none;
+            color:white;
+            margin:0 15px;
+            font-size:16px;
+            cursor:pointer;
+        }
+
+        nav button:hover{
+            color:#ff4d4d;
+        }
+
+        section{
+            display:none;
+            padding:40px;
+            text-align:center;
+        }
+
+        .active{
+            display:block;
+        }
+
+        .products{
+            display:flex;
+            justify-content:center;
+            gap:20px;
+            flex-wrap:wrap;
+        }
+
+        .card{
+            border:2px solid #d10000;
+            border-radius:10px;
+            padding:20px;
+            width:250px;
+        }
+
+        .price{
+            color:#d10000;
+            font-size:20px;
+            font-weight:bold;
+        }
+
+        input{
+            padding:10px;
+            width:200px;
+            margin:10px;
+        }
+
+        button.main-btn{
+            background:#d10000;
+            color:white;
+            padding:10px 20px;
+            border:none;
+            border-radius:5px;
+            cursor:pointer;
+        }
+
+        button.main-btn:hover{
+            background:#a00000;
+        }
+
+        footer{
+            background:#111;
+            color:white;
+            text-align:center;
+            padding:15px;
+            margin-top:30px;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>Luxury Watch Shop</h1>
+</header>
+
+<nav>
+    <button onclick="showPage('home')">Home</button>
+    <button onclick="showPage('login')">Login</button>
+    <button onclick="showPage('payment')">Payment</button>
+</nav>
+
+<!-- HOME -->
+<section id="home" class="active">
+    <h2>Our Watches</h2>
+    <div class="products">
+        <div class="card">
+            <h3>Silver Watch</h3>
+            <p class="price">$120</p>
+            <button class="main-btn" onclick="goPayment()">Buy Now</button>
+        </div>
+
+        <div class="card">
+            <h3>Black Watch</h3>
+            <p class="price">$180</p>
+            <button class="main-btn" onclick="goPayment()">Buy Now</button>
+        </div>
+    </div>
+</section>
+
+<!-- LOGIN -->
+<section id="login">
+    <h2>Login</h2>
+    <input type="text" placeholder="Username"><br>
+    <input type="password" placeholder="Password"><br>
+    <button class="main-btn" onclick="login()">Login</button>
+</section>
+
+<!-- PAYMENT -->
+<section id="payment">
+    <h2>Payment</h2>
+    <input type="text" placeholder="Card Number"><br>
+    <input type="text" placeholder="Expiry Date"><br>
+    <input type="text" placeholder="CVV"><br>
+    <button class="main-btn" onclick="pay()">Pay Now</button>
+</section>
+
+<footer>
+    <p>© 2026 Watch Shop | All Rights Reserved</p>
+</footer>
+
+<script>
+    function showPage(page){
+        document.querySelectorAll("section").forEach(sec=>{
+            sec.classList.remove("active");
+        });
+        document.getElementById(page).classList.add("active");
+    }
+
+    function login(){
+        alert("Login Successful!");
+        showPage('home');
+    }
+
+    function goPayment(){
+        showPage('payment');
+    }
+
+    function pay(){
+        alert("Payment Successful! Thank you for your purchase.");
+        showPage('home');
+    }
+</script>
+
+</body>
+</html>
